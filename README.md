@@ -39,9 +39,9 @@ Raw data are de-identified DoctorSV extracts in Parquet format, stored in `Box/A
 | `01_pacientes.parquet` | Demographics, cohort, chronic conditions, questionnaire, summary counts | One row per patient |
 | `02_condiciones_cronicas.parquet` | Chronic condition diagnoses and dates | One row per patient-condition |
 | `03_citas.parquet` | Visits, status, diagnoses, BMI at visit | One row per visit |
-| `medicamentos` (Parquet) | Prescriptions and dispensing | One row per prescription line |
-| `servicios_clinicos` (Parquet) | Laboratory tests, imaging, and procedures | One row per test order |
-| `referencias` (Parquet) | Referrals and their status | One row per referral |
+| `04_medicamentos` (Parquet) | Prescriptions and dispensing | One row per prescription line |
+| `05_servicios_clinicos` (Parquet) | Laboratory tests, imaging, and procedures | One row per test order |
+| `06_referencias` (Parquet) | Referrals and their status | One row per referral |
 
 The district map in `DoctorSV_descriptives.R` also requires `El_Salvador_districts.geojson` in the working directory.
 
