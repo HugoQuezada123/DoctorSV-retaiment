@@ -143,19 +143,6 @@ The scripts are written for interactive, section-by-section use in RStudio. Many
 
 ---
 
-## Known issues to resolve before final analysis
-
-1. **`test_retained` no longer exists.** `service_flag` now creates `lab_retained`, `imaging_retained`, and `procedure_retained`, but `DoctorSV_FRD.R` and `DoctorSV_descriptives.R` still use `test_retained`. Update those scripts, or add `test_retained` back to `service_flag`.
-2. **`retained_all` is not created** in the cleaning script but is referenced in the checking section.
-3. **Outcomes are not restricted to events after the index date.** Retention flags count events at any time, including before the earliest BMI. For a common time zero, restrict events to on or after `earliest_BMI_date`.
-4. **Visit retention uses a whole-period total** (`completed_visits` ≥ 3 from `patient_clean`), which cannot be restricted by date.
-5. **Comparison groups in the FRD.** NCD vs. Chronic and NCD vs. Non-Chronic define the comparison group partly by BMI, which can create artificial discontinuities at the cutoff. The full sample (NCD vs. all other patients) is the preferred RD comparison.
-6. **`request_date` is not in `df_disc`.** It exists only in `service_clean` and is filled only for performed tests; use `test_gen_date` as the order date.
-7. **Leftover objects:** `DoctorSV_FRD.R` refers to `df_disc`, `df_rd_baseline`, and `first_visit_date_numeric` in the flow-chart section, and `DoctorSV_cleaning.R` refers to `df_new`. These must exist in the session, or the lines will fail.
-8. **`education_cat` factor levels:** the cleaning script assigns English labels ("Low", "Medium", "High") but sets Spanish levels ("Baja", "Media", "Alta"), which turns all values to `NA`. Align the labels and levels.
-
----
-
 ## Ethics
 
 Data are de-identified by the DoctorSV NCD team before analysis. The study protocol was approved by the Duke University Institutional Review Board (Pro00120977).
